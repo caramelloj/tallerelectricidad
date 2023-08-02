@@ -18,4 +18,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('clientes', CustomerController::class);
+Route::resource('/clientes', CustomerController::class);
+
+Route::post('/buscar-cliente', [CustomerController::class, 'getCustomer'])->name('search.customer');

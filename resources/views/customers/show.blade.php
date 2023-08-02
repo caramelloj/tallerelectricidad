@@ -5,12 +5,16 @@
 <div class="container py-4 text-center">
     <div class="container">
         <div class="row">
-            <div class="form-group col-md-9">
-                <input class="form-control form-control-lg" type="text" placeholder="Escriba el nombre del cliente a buscar..." id="inputLarge">
-              </div>
-            <div class="form-group col-md-3">
-                <input type="submit" class="btn btn-primary" value="Buscar">
-            </div>
+            <form method="POST" action="{{ route('search.customer') }}">
+                @csrf
+                <div class="col-md-9 form-group">
+                    <input class="form-control form-control-lg" type="text" name="customerName" placeholder="Escriba el nombre del cliente a buscar..." id="inputLarge">
+                </div>
+                <div class="col-md-3 form-group">
+                    <input type="submit" class="btn btn-primary" value="Buscar">
+
+                </div>
+            </form>
         </div>
     </div>
 

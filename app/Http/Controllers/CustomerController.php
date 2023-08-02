@@ -20,6 +20,14 @@ class CustomerController extends Controller
     }
 
 
+    public function getCustomer(Request $request)
+    {
+
+        $customers = Customer::searchCustomer($request->customerName)->get();
+
+        return view('customers.show', compact('customers'));
+    }
+
 
     /**
      * Show the form for creating a new resource.
@@ -46,12 +54,18 @@ class CustomerController extends Controller
             'customerPhone' => 'required'
         ]);
 
-        Customer::create([
-            'name' => $request->customerName,
-            'cuit_cuil' => $request->customerCuit,
-            'address' => $request->customerAddress,
-            'phone' => $request->customerPhone
-        ]);
+        $cuit_comprobation = Customer::where('cuit_cuil', $request->customerCuit)->first();
+
+        if ($cuit_comprobation == null){
+            Customer::create([
+                'name' => $request->customerName,
+                'cuit_cuil' => $request->customerCuit,
+                'address' => $request->customerAddress,
+                'phone' => $request->customerPhone
+            ]);
+        }else{
+            return back()->with('error','Cuit Duplicado');
+        }
 
         return to_route('clientes.index');
     }

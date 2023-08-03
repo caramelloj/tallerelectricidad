@@ -15,7 +15,17 @@ class CarController extends Controller
      */
     public function index()
     {
-        //
+        $cars = Car::orderBy('id', 'DESC')->get();
+
+        return view('cars.show', compact('cars'));
+    }
+
+
+    public function getCar(Request $request){
+
+        $cars = Car::searchCar($request->carDomain)->get();
+
+        return view('cars.show', compact('cars'));
     }
 
     /**

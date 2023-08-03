@@ -16,4 +16,9 @@ class Car extends Model
         'customer_id'
     ];
 
+
+    public function scopeSearchCar($query, $patente)
+    {
+        return $query->where('domain', 'Like', "%$patente%");
+    }
 }

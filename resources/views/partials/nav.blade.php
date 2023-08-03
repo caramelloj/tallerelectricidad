@@ -7,10 +7,10 @@
       <div class="collapse navbar-collapse" id="navbarColor01">
         <ul class="navbar-nav me-auto">
           <li class="nav-item">
-            <a class="nav-link" href="{{route('clientes.index')}}">Clientes</a>
+            <a class="nav-link" href="{{ route('clientes.index') }}">Clientes</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Vehículos</a>
+            <a class="nav-link" href="{{ route('vehiculos.index') }}">Vehículos</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Reparaciones</a>

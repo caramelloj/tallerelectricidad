@@ -8,12 +8,10 @@
             <form method="POST" action="{{ route('search.customer') }}">
                 @csrf
                 <div class="col-form-group">
-
-                    <input type="text" class="form-control" placeholder="Default input" name="customerName" id="inputDefault">
+                    <input type="text" class="form-control" placeholder="Escriba el nombre del cliente para buscar..." name="customerName" id="inputDefault">
                   </div>
                 <div class="col-form-group">
                     <input type="submit" class="btn btn-primary" value="Buscar">
-
                 </div>
             </form>
         </div>

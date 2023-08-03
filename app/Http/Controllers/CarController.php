@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Car;
 use App\Models\Customer;
 use Illuminate\Http\Request;
 
-class CustomerController extends Controller
+class CarController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,20 +15,8 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        $customers = Customer::orderBy('id','desc')->get();
-
-        return view('customers.show', compact('customers'));
+        //
     }
-
-
-    public function getCustomer(Request $request)
-    {
-
-        $customers = Customer::searchCustomer($request->customerName)->get();
-
-        return view('customers.show', compact('customers'));
-    }
-
 
     /**
      * Show the form for creating a new resource.
@@ -36,7 +25,7 @@ class CustomerController extends Controller
      */
     public function create()
     {
-        return view('customers.create');
+
     }
 
     /**
@@ -47,27 +36,21 @@ class CustomerController extends Controller
      */
     public function store(Request $request)
     {
+
         $request->validate([
-            'customerName' => 'required',
-            'customerCuit' => 'required',
-            'customerAddress' => 'required',
-            'customerPhone' => 'required'
+            'domainCar' => 'required',
+            'carModel' => 'required',
+            'carYear' => 'required',
         ]);
 
-        $cuit_comprobation = Customer::where('cuit_cuil', $request->customerCuit)->first();
+        Car::create([
+            'domain' => $request->domainCar,
+            'model' => $request->carModel,
+            'year' => $request->carYear,
+            'customer_id' =>$request->customerId
+        ]);
 
-        if ($cuit_comprobation == null){
-            Customer::create([
-                'name' => $request->customerName,
-                'cuit_cuil' => $request->customerCuit,
-                'address' => $request->customerAddress,
-                'phone' => $request->customerPhone
-            ]);
-        }else{
-            return back()->with('error','Cuit Duplicado');
-        }
-
-        return to_route('clientes.index');
+        return to_route('vehiculos.index');
     }
 
     /**
@@ -78,7 +61,9 @@ class CustomerController extends Controller
      */
     public function show($id)
     {
-        //
+        $customer = Customer::where('id', $id)->first();
+
+        return view('cars.create',compact('customer'));
     }
 
     /**
@@ -112,12 +97,6 @@ class CustomerController extends Controller
      */
     public function destroy($id)
     {
-
-        Customer::where('id', $id)->delete();
-
-        $customers = Customer::orderBy('id','DESC')->get();
-
-        return view('customers.show', compact('customers'));
-
+        //
     }
 }

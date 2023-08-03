@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CarController;
 use App\Http\Controllers\CustomerController;
 
 /*
@@ -18,6 +19,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('/clientes', CustomerController::class);
-
 Route::post('/buscar-cliente', [CustomerController::class, 'getCustomer'])->name('search.customer');
+
+Route::resource('/clientes', CustomerController::class); //metodo destroy no funciona
+
+Route::get('/borrar-cliente/{id}', 'App\Http\Controllers\CustomerController@destroy')->name('delete.customer');
+
+Route::resource('/vehiculos', CarController::class);

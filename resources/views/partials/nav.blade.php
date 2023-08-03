@@ -10,7 +10,7 @@
             <a class="nav-link" href="{{route('clientes.index')}}">Clientes</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Autos</a>
+            <a class="nav-link" href="#">Vehículos</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Reparaciones</a>

@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('repairs', function (Blueprint $table) {
             $table->id();
             $table->string('observations', 300);
+            $table->string('domain', 30);
             $table->unsignedBigInteger('car_id');
             $table->timestamps();
             $table->foreign('car_id')->references('id')

@@ -39,7 +39,7 @@
                 <td>{{ $car->domain }}</td>
                 <td>{{ $car->model }}</td>
                 <td>{{ $car->year }}</td>
-                <td><a href="{{ route('vehiculos.show',  $car->id) }}"><button class="btn btn-primary"><i class="fas fa-car fa-2x"></button></i></a></td>
+                <td><a href="{{ route('reparaciones.create',  $car->id) }}"><button class="btn btn-primary"><i class="fas fa-car fa-2x"></button></i></a></td>
                 <td><a href="{{ route('delete.vehicle',  $car->id) }}"><button class="btn btn-primary"><i class="fas fa-trash-alt fa-2x"></button></i></a></td>
                 <td><a href="{{ route('vehiculos.edit',  $car->id) }}"><button class="btn btn-primary"><i class="fas fa-pen-square fa-2x"></button></i></a></td>
 

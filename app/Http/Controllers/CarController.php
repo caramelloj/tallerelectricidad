@@ -107,6 +107,10 @@ class CarController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Car::where('id', $id)->delete();
+
+        $cars = Car::orderBy('id', 'DESC')->get();
+
+        return view('cars.show', compact('cars'));
     }
 }

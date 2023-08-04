@@ -29,4 +29,6 @@ Route::get('/borrar-cliente/{id}', 'App\Http\Controllers\CustomerController@dest
 
 Route::resource('/vehiculos', CarController::class);
 
+Route::get('/borrar-vehiculo/{id}', 'App\Http\Controllers\CarController@destroy')->name('delete.vehicle');
+
 Route::post('/buscar-automovil', [CarController::class, 'getCar'])->name('search.car');

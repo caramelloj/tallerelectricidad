@@ -4,7 +4,20 @@
 
 @section('content')
     <div class="container py-4">
-
+        <div class="container">
+            <div class="row">
+                <form method="POST" action="{{ route('search.repair') }}">
+                    @csrf
+                    <div class="col-form-group">
+                        <input type="text" class="form-control" placeholder="Escriba la patente para buscar..." name="carDomain" id="inputDefault">
+                      </div>
+                    <div class="col-form-group">
+                        <input type="submit" class="btn btn-primary" value="Buscar">
+                    </div>
+                </form>
+            </div>
+        </div>
+        <hr>
         <table class="table">
             <thead>
               <tr>

@@ -15,7 +15,7 @@ class RepairController extends Controller
      */
     public function index()
     {
-        $repairs = Repair::all();
+        $repairs = Repair::orderBy('id','desc')->get();
 
         return view('repairs.show', compact('repairs'));
     }
@@ -30,6 +30,16 @@ class RepairController extends Controller
         $car = Car::where('id', $id)->first();
 
         return view('repairs.create', compact('car'));
+    }
+
+    /* Search a repair by domain */
+
+    public function getRepair(Request $request){
+
+
+        $repairs = Repair::searchRepair($request->carDomain)->get();
+
+        return view('repairs.show', compact('repairs'));
     }
 
     /**

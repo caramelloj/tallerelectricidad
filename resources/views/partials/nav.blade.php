@@ -13,7 +13,7 @@
             <a class="nav-link" href="{{ route('vehiculos.index') }}">Vehículos</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Reparaciones</a>
+            <a class="nav-link" href="{{ route('reparaciones.index') }}">Reparaciones</a>
           </li>
         </ul>
       </div>

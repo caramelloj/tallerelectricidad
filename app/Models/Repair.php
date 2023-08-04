@@ -14,4 +14,9 @@ class Repair extends Model
         'car_id',
         'domain'
     ];
+
+    public function scopeSearchRepair($query, $domain)
+    {
+        return $query->where('domain', 'Like', "%$domain%");
+    }
 }

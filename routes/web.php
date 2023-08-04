@@ -26,13 +26,15 @@ Route::get('/borrar-cliente/{id}', 'App\Http\Controllers\CustomerController@dest
 
 Route::post('/buscar-cliente', [CustomerController::class, 'getCustomer'])->name('search.customer');
 
-Route::get('/editar-vehiculo/{id}', [CustomerController::class, 'editCustomer'])->name('edit.customer');
+Route::get('/editar-cliente/{id}', [CustomerController::class, 'editCustomer'])->name('edit.customer');
 
 Route::resource('/vehiculos', CarController::class);
 
 Route::get('/borrar-vehiculo/{id}', 'App\Http\Controllers\CarController@destroy')->name('delete.vehicle');
 
 Route::post('/buscar-automovil', [CarController::class, 'getCar'])->name('search.car');
+
+Route::get('/editar-automovil/{id}', [CarController::class, 'editCar'])->name('edit.car');
 
 Route::get('/reparacion/{id}',[RepairController::class, 'create'])->name('reparaciones.create');
 

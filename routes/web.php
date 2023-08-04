@@ -21,7 +21,9 @@ Route::get('/', function () {
 
 Route::post('/buscar-cliente', [CustomerController::class, 'getCustomer'])->name('search.customer');
 
-Route::resource('/clientes', CustomerController::class); //metodo destroy no funciona
+Route::resource('/clientes', CustomerController::class); //metodo destroy y update no funcionan
+
+Route::get('/editar-vehiculo/{id}', [CustomerController::class, 'editCustomer'])->name('edit.customer');
 
 Route::get('/borrar-cliente/{id}', 'App\Http\Controllers\CustomerController@destroy')->name('delete.customer');
 

@@ -81,15 +81,28 @@ class CustomerController extends Controller
         //
     }
 
+    public function editCustomer($id){
+
+        $customer = Customer::where('id', $id)->first();
+
+        return view('customers.edit', compact('customer'));
+    }
     /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request, $id)
     {
-        //
+        $cliente = Customer::where('id', $id)->first();
+        $cliente->name = $request->customerName;
+        $cliente->cuit_cuil = $request->customerCuit;
+        $cliente->address = $request->customerAddress;
+        $cliente->phone = $request->customerPhone;
+        $cliente->save();
+
+        return to_route('clientes.index');
     }
 
     /**
@@ -101,7 +114,7 @@ class CustomerController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        dd($request);
     }
 
     /**

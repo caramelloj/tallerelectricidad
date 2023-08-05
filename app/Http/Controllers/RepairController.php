@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Car;
 use App\Models\Repair;
+use PDF;
 use Illuminate\Http\Request;
 
 class RepairController extends Controller
@@ -78,6 +79,16 @@ class RepairController extends Controller
         return view('repairs.show', compact('repairs'));
     }
 
+
+    public function dumpPdf($patente){
+        $repairs = Repair::where('domain', $patente)->get();
+
+        $vehicleData = Car::where('domain', $patente)->get();
+
+        $pdf = PDF::loadView('layouts.pdf', compact('repairs','vehicleData'));
+
+        return $pdf->download('Historial-'.$patente.'.pdf');
+    }
     /**
      * Show the form for editing the specified resource.
      *

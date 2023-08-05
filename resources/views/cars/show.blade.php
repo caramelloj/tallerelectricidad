@@ -45,7 +45,7 @@
                 <td><a href="{{ route('delete.vehicle',  $car->id) }}"><button class="btn btn-primary"><i class="fas fa-trash-alt fa-2x"></button></i></a></td>
                 <td><a href="{{ route('edit.car',  $car->id) }}"><button class="btn btn-primary"><i class="fas fa-pen-square fa-2x"></button></i></a></td>
                 <td><a href="{{ route('reparaciones.show',  $car->id) }}"><button class="btn btn-primary"><i class="far fa-eye fa-2x"></button></i></a></td>
-                <td><a href="{{-- {{ route('edit.car',  $car->id) }} --}}"><button class="btn btn-primary"><i class="far fa-file-pdf fa-2x"></button></i></a></td>
+                <td><a href="{{ route('reparaciones.pdf',  $car->domain) }}"><button class="btn btn-primary"><i class="far fa-file-pdf fa-2x"></button></i></a></td>
 
             </tr>
             @empty

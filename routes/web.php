@@ -45,3 +45,5 @@ Route::get('/listar-reparaciones', [RepairController::class, 'index'])->name('re
 Route::post('/buscar-reparacion', [RepairController::class, 'getRepair'])->name('search.repair');
 
 Route::get('/listar-reparaciones/{id}', [RepairController::class, 'show'])->name('reparaciones.show');
+
+Route::get('/imprimir-reparaciones/{patente}', [RepairController::class, 'dumpPdf'])->name('reparaciones.pdf');

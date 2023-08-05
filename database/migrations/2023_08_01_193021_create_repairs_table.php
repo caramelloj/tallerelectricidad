@@ -20,7 +20,7 @@ return new class extends Migration
             $table->unsignedBigInteger('car_id');
             $table->timestamps();
             $table->foreign('car_id')->references('id')
-                ->on('cars');
+                ->on('cars')->onDelete('cascade');
         });
     }
 

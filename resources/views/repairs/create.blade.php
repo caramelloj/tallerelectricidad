@@ -30,7 +30,7 @@
                         </fieldset>
                       </div>
                     <div class="form-group">
-                        <label for="exampleTextarea" class="form-label mt-4">Example textarea</label>
+                        <label for="exampleTextarea" class="form-label mt-4">Observaciones de la reparación</label>
                         <textarea class="form-control" id="exampleTextarea" rows="3" name="repair"></textarea>
                     </div>
 

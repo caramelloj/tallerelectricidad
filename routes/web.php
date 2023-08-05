@@ -43,3 +43,5 @@ Route::post('/agregar-reparacion', [RepairController::class, 'store'])->name('re
 Route::get('/listar-reparaciones', [RepairController::class, 'index'])->name('reparaciones.index');
 
 Route::post('/buscar-reparacion', [RepairController::class, 'getRepair'])->name('search.repair');
+
+Route::get('/listar-reparaciones/{id}', [RepairController::class, 'show'])->name('reparaciones.show');

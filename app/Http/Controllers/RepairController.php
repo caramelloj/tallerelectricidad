@@ -73,7 +73,9 @@ class RepairController extends Controller
      */
     public function show($id)
     {
-        //
+        $repairs = Repair::where('car_id', $id)->get();
+
+        return view('repairs.show', compact('repairs'));
     }
 
     /**

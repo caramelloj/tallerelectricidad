@@ -20,7 +20,7 @@
 
 <hr>
 
-<div class="container">
+<div class="container text-center">
     <table class="table">
         <thead>
           <tr>
@@ -30,6 +30,8 @@
             <th scope="col">Añadir reparación</th>
             <th scope="col">Eliminar vehículo</th>
             <th scope="col">Editar vehículo</th>
+            <th scope="col">Ver reparaciones</th>
+            <th scope="col">Descargar reparaciones</th>
 
           </tr>
         </thead>
@@ -42,6 +44,8 @@
                 <td><a href="{{ route('reparaciones.create',  $car->id) }}"><button class="btn btn-primary"><i class="fas fa-car fa-2x"></button></i></a></td>
                 <td><a href="{{ route('delete.vehicle',  $car->id) }}"><button class="btn btn-primary"><i class="fas fa-trash-alt fa-2x"></button></i></a></td>
                 <td><a href="{{ route('edit.car',  $car->id) }}"><button class="btn btn-primary"><i class="fas fa-pen-square fa-2x"></button></i></a></td>
+                <td><a href="{{ route('reparaciones.show',  $car->id) }}"><button class="btn btn-primary"><i class="far fa-eye fa-2x"></button></i></a></td>
+                <td><a href="{{-- {{ route('edit.car',  $car->id) }} --}}"><button class="btn btn-primary"><i class="far fa-file-pdf fa-2x"></button></i></a></td>
 
             </tr>
             @empty

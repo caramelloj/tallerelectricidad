@@ -53,11 +53,16 @@ class CarController extends Controller
             'carYear' => 'required',
         ]);
 
+        //get customer data to insert in db
+        $customer = Customer::where('id', $request->customerId)->get();
+
         Car::create([
             'domain' => $request->domainCar,
             'model' => $request->carModel,
             'year' => $request->carYear,
-            'customer_id' =>$request->customerId
+            'customer_id' =>$request->customerId,
+            'proprietary_name' => $customer[0]->name,
+            'cuit_cuil' => $customer[0]->cuit_cuil
         ]);
 
         return to_route('vehiculos.index');

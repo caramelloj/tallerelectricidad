@@ -13,7 +13,9 @@ class Car extends Model
         'domain',
         'model',
         'year',
-        'customer_id'
+        'customer_id',
+        'proprietary_name',
+        'cuit_cuil'
     ];
 
 

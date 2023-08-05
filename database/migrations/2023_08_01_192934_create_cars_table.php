@@ -17,6 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('domain',40)->unique();
             $table->string('model',60);
+            $table->string('proprietary_name',60);
+            $table->string('cuit_cuil',60);
             $table->string('year',30);
             $table->unsignedBigInteger('customer_id');
             $table->timestamps();

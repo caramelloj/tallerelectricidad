@@ -18,24 +18,27 @@
             </div>
         </div>
         <hr>
-        <table class="table">
-            <thead>
-              <tr>
-                <th scope="col">Fecha de reparación</th>
-                <th scope="col">Patente</th>
-                <th scope="col">Observaciones</th>
-              </tr>
-            </thead>
-            <tbody>
-                @forelse ($repairs as $repair)
-                <tr>
-                    <td>{{ ($repair->created_at)->format('d-m-Y') }}</td>
-                    <td>{{ $repair->domain }}</td>
-                    <td>{{ $repair->observations }}</td>
-                @empty
-                <h1>No hay registros para mostrar</h1>
-                @endforelse
-            </tbody>
-          </table>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Fecha de reparación</th>
+                    <th scope="col">Patente</th>
+                    <th scope="col">Observaciones</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    @forelse ($repairs as $repair)
+                    <tr>
+                        <td>{{ ($repair->created_at)->format('d-m-Y') }}</td>
+                        <td>{{ $repair->domain }}</td>
+                        <td>{{ $repair->observations }}</td>
+                    @empty
+                    <h1>No hay registros para mostrar</h1>
+                    @endforelse
+                </tbody>
+              </table>
+        </div>
+
     </div>
 @endsection

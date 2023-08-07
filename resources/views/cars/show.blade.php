@@ -42,8 +42,16 @@
                 <td>{{ $car->model }}</td>
                 <td>{{ $car->year }}</td>
                 <td><a href="{{ route('reparaciones.create',  $car->id) }}"><button class="btn btn-primary"><i class="fas fa-car fa-2x"></button></i></a></td>
-                <td><a href="{{ route('delete.vehicle',  $car->id) }}"><button class="btn btn-primary"><i class="fas fa-trash-alt fa-2x"></button></i></a></td>
-                <td><a href="{{ route('edit.car',  $car->id) }}"><button class="btn btn-primary"><i class="fas fa-pen-square fa-2x"></button></i></a></td>
+                <form action="{{ route('vehiculos.destroy',  $car->id) }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <td><a href=""><button class="btn btn-primary"><i class="fas fa-trash-alt fa-2x"></button></i></a></td>
+                </form>
+                <form action="{{ route('vehiculos.edit',  $car->id) }}">
+                    @csrf
+                    @method('PUT')
+                    <td><a href=""><button class="btn btn-primary"><i class="fas fa-pen-square fa-2x"></button></i></a></td>
+                </form>
                 <td><a href="{{ route('reparaciones.show',  $car->id) }}"><button class="btn btn-primary"><i class="far fa-eye fa-2x"></button></i></a></td>
                 <td><a href="{{ route('reparaciones.pdf',  $car->domain) }}"><button class="btn btn-primary"><i class="far fa-file-pdf fa-2x"></button></i></a></td>
 

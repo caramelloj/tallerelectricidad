@@ -9,8 +9,9 @@
                 Actualizar datos de vehículo
             </div>
             <div class="card-body">
-                <form method="GET" action="{{route('vehiculos.edit', $car->id)}}">
+                <form method="POST" action="{{route('vehiculos.update', $car->id)}}">
                     @csrf
+                    @method('PUT')
                     <div class="form-group">
                         <label class="col-form-label col-form-label-sm mt-8" for="customerName">Patente</label>
                         <input class="form-control form-control-sm" type="text" placeholder="" value="{{ $car->domain }}" id="carDomain" name="carDomain">

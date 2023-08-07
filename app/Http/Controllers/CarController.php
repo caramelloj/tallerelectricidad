@@ -68,12 +68,6 @@ class CarController extends Controller
         return to_route('vehiculos.index');
     }
 
-    public function editCar($id){
-
-        $car = Car::where('id', $id)->first();
-
-        return view('cars.edit', compact('car'));
-    }
 
     /**
      * Display the specified resource.
@@ -97,12 +91,8 @@ class CarController extends Controller
     public function edit(Request $request, $id)
     {
         $car = Car::where('id', $id)->first();
-        $car->domain = $request->carDomain;
-        $car->model = $request->carModel;
-        $car->year = $request->carYear;
-        $car->save();
 
-        return to_route('vehiculos.index');
+        return view('cars.edit', compact('car'));
     }
 
     /**
@@ -114,7 +104,13 @@ class CarController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $car = Car::where('id', $id)->first();
+        $car->domain = $request->carDomain;
+        $car->model = $request->carModel;
+        $car->year = $request->carYear;
+        $car->save();
+
+        return to_route('vehiculos.index');
     }
 
     /**
@@ -125,6 +121,7 @@ class CarController extends Controller
      */
     public function destroy($id)
     {
+
         Car::where('id', $id)->delete();
 
         $cars = Car::orderBy('id', 'DESC')->get();

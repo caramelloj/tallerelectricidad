@@ -9,8 +9,9 @@
                 Actualizar datos de cliente
             </div>
             <div class="card-body">
-                <form method="PUT" action="{{route('clientes.edit', $customer->id)}}">
+                <form method="POST" action="{{route('clientes.update', $customer->id)}}">
                     @csrf
+                    @method('PUT')
                     <div class="form-group">
                         <label class="col-form-label col-form-label-sm mt-8" for="customerName">Ingrese nombre del cliente</label>
                         <input class="form-control form-control-sm" type="text" placeholder="" value="{{ $customer->name }}" id="customerName" name="customerName">

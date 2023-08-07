@@ -40,8 +40,16 @@
                 <td>{{ $customer->phone }}</td>
                 <td>{{ $customer->address }}</td>
                 <td><a href="{{ route('vehiculos.show',  $customer->id) }}"><button class="btn btn-primary"><i class="fas fa-car fa-2x"></button></i></a></td>
-                <td><a href="{{ route('delete.customer',  $customer->id) }}"><button class="btn btn-primary"><i class="fas fa-trash-alt fa-2x"></button></i></a></td>
-                <td><a href="{{ route('edit.customer',  $customer->id) }}"><button class="btn btn-primary"><i class="fas fa-user-edit fa-2x"></button></i></a></td>
+                <form action="{{ route('clientes.destroy',  $customer->id) }}" method="POST">
+                    <td><a href=""><button class="btn btn-primary"><i class="fas fa-trash-alt fa-2x"></button></i></a></td>
+                    @csrf
+                    @method('DELETE')
+                </form>
+                <form action="{{ route('clientes.edit',  $customer->id) }}">
+                    @csrf
+                    @method('PUT')
+                    <td><a href=""><button class="btn btn-primary"><i class="fas fa-user-edit fa-2x"></button></i></a></td>
+                </form>
             </tr>
             @empty
             <h1>No hay registros para mostrar</h1>
@@ -50,7 +58,4 @@
       </table>
 
 </div>
-
-
-
 @endsection
